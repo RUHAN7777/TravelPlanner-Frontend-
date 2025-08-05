@@ -27,7 +27,7 @@ const Dashboard = () => {
 
   const fetchUserTrips = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/trips', {
+      const response = await axios.get('https://travelplanner-backend-1-c94t.onrender.com/trips', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTrips(response.data);
@@ -39,10 +39,10 @@ const Dashboard = () => {
   const fetchAnalytics = async () => {
     try {
       const [citiesRes, activitiesRes] = await Promise.all([
-        axios.get('http://localhost:5000/analytics/most-visited-cities', {
+        axios.get('https://travelplanner-backend-1-c94t.onrender.com/analytics/most-visited-cities', {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get('http://localhost:5000/analytics/most-popular-activities', {
+        axios.get('https://travelplanner-backend-1-c94t.onrender.com/analytics/most-popular-activities', {
           headers: { Authorization: `Bearer ${token}` }
         })
       ]);
@@ -66,7 +66,7 @@ const Dashboard = () => {
   const fetchByDestination = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/trips/destination/${destinationQuery}`,
+        `https://travelplanner-backend-1-c94t.onrender.com/trips/destination/${destinationQuery}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -80,7 +80,7 @@ const Dashboard = () => {
   const fetchByDateRange = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/trips/dates/${startDate}/${endDate}`,
+        `https://travelplanner-backend-1-c94t.onrender.com/trips/dates/${startDate}/${endDate}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -94,7 +94,7 @@ const Dashboard = () => {
   const updateActivityStatus = async (tripId, city, activityName, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:5000/trips/${tripId}/update-activity`,
+        `https://travelplanner-backend-1-c94t.onrender.com/trips/${tripId}/update-activity`,
         { city, activityName, newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -113,7 +113,7 @@ const Dashboard = () => {
   
     try {
       await axios.post(
-        `http://localhost:5000/trips/${tripId}/upload-file`,
+        `https://travelplanner-backend-1-c94t.onrender.com/trips/${tripId}/upload-file`,
         formData,
         {
           headers: {
@@ -268,7 +268,7 @@ const Dashboard = () => {
                     {trip.files.map((file, index) => (
                       <a
                         key={index}
-                        href={`http://localhost:5000/trips/${trip._id}/files/${file.originalName}`}
+                        href={`https://travelplanner-backend-1-c94t.onrender.com/trips/${trip._id}/files/${file.originalName}`}
                         target="_blank"
                         rel="noreferrer"
                         className="file-link"

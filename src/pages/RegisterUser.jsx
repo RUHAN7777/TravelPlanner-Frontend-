@@ -20,7 +20,7 @@ const RegisterUser = () => {
 
     try {
       // You can replace this with your actual API endpoint
-      const res = await fetch('http://localhost:5000/users', {
+      const res = await fetch('https://travelplanner-backend-1-c94t.onrender.com/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

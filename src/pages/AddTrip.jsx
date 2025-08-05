@@ -53,7 +53,7 @@ const AddTrip = () => {
     };
   
     try {
-      const response = await axios.post('http://localhost:5000/trips', tripData, {
+      const response = await axios.post('https://travelplanner-backend-1-c94t.onrender.com/trips', tripData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
